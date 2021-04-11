@@ -25,8 +25,14 @@ Route::fallback(function () {
 });
 
 Route::get('/', [WelcomeController::class,'index'])->name('welcome');
-Route::get('/create', [IngredientController::class,'create'])->name('createRecette');
+Route::get('/BDD-Ingredient', [IngredientController::class,'index'])->name('IngredientBDD');
+Route::get('/create', [RecetteController::class,'create'])->name('createRecette');
+Route::get('/createIngredient', [IngredientController::class,'create'])->name('createIngredient');
 Route::post('/store', [RecetteController::class,'store'])->name('storeRecette');
+Route::post('/storeIngredient', [IngredientController::class,'store'])->name('envoiIngredient');
 Route::get('/edit{id}', [RecetteController::class,'edit'])->name('editRecette');
+Route::get('/editIngredient/{id}', [IngredientController::class,'edit'])->name('editIngredient');
 Route::post('/update{id}', [RecetteController::class,'update'])->name('updateRecette');
+Route::post('/updateIngredient/{id}', [IngredientController::class,'update'])->name('updateIngredient');
 Route::get('/destroy{id}', [RecetteController::class,'destroy'])->name('destroyRecette');
+Route::get('/DestroyIngredient/{id}', [IngredientController::class,'destroy'])->name('destroyIngredient');

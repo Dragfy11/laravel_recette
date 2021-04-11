@@ -15,7 +15,8 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        //
+        $ingredient = Ingredient::all();
+        return view('bddIngredient', compact('ingredient'));
     }
 
     /**
@@ -25,8 +26,8 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        $ingredient = Ingredient::all();
-        return view('createRecette', compact('ingredient'));
+        
+        return view('createIngredient');
     }
 
     /**
@@ -37,7 +38,15 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:30|',
+        ]);
+
+        $ingredient = new Ingredient();
+        $ingredient->name = $request->input('name');
+        $ingredient->save();
+
+        return redirect()->route('welcome');
     }
 
     /**
@@ -57,9 +66,10 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ingredient $ingredient)
+    public function edit(Ingredient $ingredient, $id)
     {
-        //
+        $ingredient = Ingredient::find($id);
+        return view('editIngredient', compact('ingredient'));
     }
 
     /**
@@ -69,9 +79,18 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ingredient $ingredient)
+    public function update(Request $request, Ingredient $ingredient, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:20|min:3',
+        ]);
+
+        $ingredient = Ingredient::find($id);
+
+        $ingredient->name = $request->input('name');
+        $ingredient->save();
+
+        return redirect()->route('welcome');
     }
 
     /**
@@ -80,8 +99,10 @@ class IngredientController extends Controller
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ingredient $ingredient)
+    public function destroy(Ingredient $ingredient, $id)
     {
-        //
+        $ingredient = Ingredient::find($id);
+        $ingredient->delete();
+        return redirect()->route('IngredientBDD');
     }
 }

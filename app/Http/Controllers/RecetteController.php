@@ -26,7 +26,8 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        //
+        $ingredient = Ingredient::all();
+        return view('createRecette', compact('ingredient'));
     }
 
     /**
@@ -37,6 +38,13 @@ class RecetteController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:100|',
+            'nbrPersonne' => 'required',
+            'duree' => 'required',
+            'difficulte' => 'required'
+        ]);
+
         $desserts = new Recette;
         $desserts->name = $request->input('name');
         $desserts->nbrPersonne = $request->input('nbrPersonne');
@@ -82,6 +90,14 @@ class RecetteController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required|max:100|',
+            'nbrPersonne' => 'required',
+            'duree' => 'required',
+            'difficulte' => 'required'
+        ]);
+
         $dessert = Recette::find($id);
         $dessert->name = $request->input('name');
         $dessert->nbrPersonne = $request->input('nbrPersonne');

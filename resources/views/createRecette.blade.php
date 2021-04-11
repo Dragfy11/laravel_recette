@@ -16,14 +16,29 @@
         <div class="table table-bordered table-hover shadow">
             <form class="d-flex flex-column  align-items-start mx-auto w-50" action="{{route('storeRecette')}}" method="POST">
                 @csrf
+                @if (session('status'))
+      <div class="alert alert-danger">
+        {{ session('status') }}
+      </div>
+    @endif
+          
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div>
+    @endif
                 <label for="" class="mt-4 font-weight-bold">Nom de la recette:</label>
-                    <input class="w-50" type="text" name="name">
+                    <input class="w-50" type="text" name="name" value="{{old("name")}}">
                 <label for="" class="mt-4 font-weight-bold">Temps de réalisation:</label>
-                    <input class="w-50" type="text" name="duree">
+                    <input class="w-50" type="text" name="duree" value="{{old("duree")}}">
                 <label for="" class="mt-4 font-weight-bold">Nombre de personne:</label>
-                    <input class="w-50" type="text" name="nbrPersonne">
+                    <input class="w-50" type="text" name="nbrPersonne" value="{{old("nbrPersonne")}}">
                 <label for="" class="mt-4 font-weight-bold">Difficulte:</label>
-                    <textarea class="w-50"  name="difficulte"></textarea>
+                    <textarea class="w-50"  name="difficulte" value="{{old("difficulte")}}"></textarea>
                 <label for="" class="mt-4 mb-3 font-weight-bold">Ingredient:</label>
                 <div class="form-group">
                     @foreach($ingredient as $item)

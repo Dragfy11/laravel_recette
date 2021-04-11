@@ -9,8 +9,13 @@
 
 <div class="table-wrapper"> 
     <div class="mt-4 mb-4">
-
         <a href="{{route('createRecette')}}" class="btn btn-primary scrollto">creer une recette</a></td>
+    </div>
+    <div class="mt-4 mb-4">
+        <a href="{{route('createIngredient')}}" class="btn btn-primary scrollto">creer un ingredient</a></td>
+    </div>
+    <div class="mt-4 mb-4">
+        <a href="{{route('IngredientBDD')}}" class="btn btn-primary scrollto">BDD ingrédient</a></td>
     </div>
 
     <table class="table table-bordered table-hover shadow">
