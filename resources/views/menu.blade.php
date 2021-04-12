@@ -3,21 +3,24 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-<h2 class="mt-5 mb-5 page-section-heading text-center text-uppercase"> recette</h2>
+<h2 class="mt-5 mb-5 page-section-heading text-center text-uppercase bg-dark text-white mr-5 ml-5"> recette</h2>
 <div class="container">
 
 
 <div class="table-wrapper"> 
-    <div class="mt-4 mb-4">
-        <a href="{{route('createRecette')}}" class="btn btn-primary scrollto">creer une recette</a></td>
-    </div>
-    <div class="mt-4 mb-4">
-        <a href="{{route('createIngredient')}}" class="btn btn-primary scrollto">creer un ingredient</a></td>
-    </div>
-    <div class="mt-4 mb-4">
-        <a href="{{route('IngredientBDD')}}" class="btn btn-primary scrollto">BDD ingrédient</a></td>
-    </div>
+    <div class="d-flex align-items-start">
 
+        <div class="mt-4 mb-4 mr-3">
+            <a href="{{route('createRecette')}}" class="btn btn-primary scrollto">Créer une nouvelle recette</a></td>
+        </div>
+        <div class="mt-4 mb-4 mr-3">
+            <a href="{{route('createIngredient')}}" class="btn btn-primary scrollto">Créer un nouveau ingrédient</a></td>
+        </div>
+        <div class="mt-4 mb-4">
+            <a href="{{route('IngredientBDD')}}" class="btn btn-primary scrollto">Afficher tout les ingrédients</a></td>
+        </div>
+        
+    </div>
     <table class="table table-bordered table-hover shadow">
         
         <thead>

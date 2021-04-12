@@ -32,13 +32,13 @@
       </div>
     @endif
                 <label for="" class="mt-4 font-weight-bold">Nom de la recette:</label>
-                    <input class="w-50" type="text" name="name" value="{{old("name")}}">
+                    <input class="w-50" type="text" name="name" value="{{old("name")}}" placeholder="Veuillez saisir une recette">
                 <label for="" class="mt-4 font-weight-bold">Temps de réalisation:</label>
-                    <input class="w-50" type="text" name="duree" value="{{old("duree")}}">
+                    <input class="w-50" type="text" name="duree" value="{{old("duree")}}" placeholder="Veuillez saisir le temps de préparation">
                 <label for="" class="mt-4 font-weight-bold">Nombre de personne:</label>
-                    <input class="w-50" type="text" name="nbrPersonne" value="{{old("nbrPersonne")}}">
+                    <input class="w-50" type="text" name="nbrPersonne" value="{{old("nbrPersonne")}}"placeholder="Veuillez saisir un nombre">
                 <label for="" class="mt-4 font-weight-bold">Difficulte:</label>
-                    <textarea class="w-50"  name="difficulte" value="{{old("difficulte")}}"></textarea>
+                    <textarea class="w-50"  name="difficulte" value="{{old("difficulte")}}"placeholder="Veuillez saisir une difficulté"></textarea>
                 <label for="" class="mt-4 mb-3 font-weight-bold">Ingredient:</label>
                 <div class="form-group">
                     @foreach($ingredient as $item)
