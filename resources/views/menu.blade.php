@@ -22,12 +22,12 @@
         
         <thead>
         <tr class="bg-danger text-white text-center">
-            <th>nom de la recette</th>
-            <th class="pb-4">temps</th>
-            <th>nbr personne</th>
-            <th class="pb-4">nom des ingredients</th>
-            <th class="pb-4">difficulte</th>
-            <th>action proposer</th>
+            <th class="pb-3">nom de la recette</th>
+            <th class="pb-3">temps</th>
+            <th class="pb-3">nbr personne</th>
+            <th class="pb-3">nom des ingredients</th>
+            <th class="pb-3">difficulte</th>
+            <th class="pb-3">action proposer</th>
         </tr>
     </thead>
     <tbody>
